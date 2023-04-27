@@ -1,0 +1,37 @@
+spring:
+
+  main:
+    banner-mode: off
+
+  # http://localhost:8080/h2-console
+  h2:
+    console:
+      enabled: true
+
+  datasource:
+    url: jdbc:h2:file:./DB-Pizza/Pizza;AUTO_SERVER=TRUE;
+    driverClassName: org.h2.Driver
+    username: sa
+    password: sa
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        ddl-auto: validate
+        show-sql: true
+        format_sql: true
+
+  liquibase:
+    change-log: classpath:db/db.changelog-master.xml
+  #  enabled: true
+
+application:
+  scale: 6
+
+jwt:
+  header: Authorization
+  secret: proselyteproselyteproselyteproselyte
+  expiration: 604800
+  subject: user-details
+  issuer : pizza-backend-project
